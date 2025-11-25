@@ -51,14 +51,6 @@ app.patch('/students/:id', (req, res) => {
   res.json(s);
 });
 
-app.delete('/students/:id', (req, res) => {
-  const id = Number(req.params.id);
-  const idx = students.findIndex(x => x.id === id);
-  if (idx === -1) return res.status(404).json({ error: 'Student not found' });
-  const removed = students.splice(idx, 1)[0];
-  res.json({ message: 'Deleted', student: removed });
-});
-
 app.get('/', (req, res) => res.send('Student API (Node) running'));
 
 app.listen(port, () => console.log(`Node Student API listening on http://localhost:${port}`));
