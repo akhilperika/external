@@ -30,26 +30,26 @@ app.post('/students', (req, res) => {
   res.status(201).json(student);
 });
 
-app.patch('/students/:id', (req, res) => {
-  const id = Number(req.params.id);
-  const s = students.find(x => x.id === id);
-  if (!s) return res.status(404).json({ error: 'Student not found' });
+// app.patch('/students/:id', (req, res) => {
+//   const id = Number(req.params.id);
+//   const s = students.find(x => x.id === id);
+//   if (!s) return res.status(404).json({ error: 'Student not found' });
 
-  const { name, age, major } = req.body;
-  if (name !== undefined) {
-    if (typeof name !== 'string') return res.status(400).json({ error: 'Invalid name' });
-    s.name = name;
-  }
-  if (age !== undefined) {
-    if (typeof age !== 'number') return res.status(400).json({ error: 'Invalid age' });
-    s.age = age;
-  }
-  if (major !== undefined) {
-    if (typeof major !== 'string') return res.status(400).json({ error: 'Invalid major' });
-    s.major = major;
-  }
-  res.json(s);
-});
+//   const { name, age, major } = req.body;
+//   if (name !== undefined) {
+//     if (typeof name !== 'string') return res.status(400).json({ error: 'Invalid name' });
+//     s.name = name;
+//   }
+//   if (age !== undefined) {
+//     if (typeof age !== 'number') return res.status(400).json({ error: 'Invalid age' });
+//     s.age = age;
+//   }
+//   if (major !== undefined) {
+//     if (typeof major !== 'string') return res.status(400).json({ error: 'Invalid major' });
+//     s.major = major;
+//   }
+//   res.json(s);
+// });
 
 app.get('/', (req, res) => res.send('Student API (Node) running'));
 
